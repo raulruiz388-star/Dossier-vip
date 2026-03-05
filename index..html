@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raymex | Dossier Ejecutivo VIP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Urbanist', sans-serif; background-color: #020617; color: #f8fafc; margin: 0; overflow-x: hidden; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+        .glass-card { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; }
+        .gold-text { color: #d4af37; }
+        .bg-gold { background-color: #d4af37; }
+        
+        .card-auto { border-left: 6px solid #bef264; }
+        .card-hogar { border-left: 6px solid #10b981; }
+        .card-empresa { border-left: 6px solid #0ea5e9; }
+
+        .view { display: none; opacity: 0; }
+        .view.active { display: block; opacity: 1; animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .nav-btn { position: relative; font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #64748b; padding: 4px; transition: 0.3s; }
+        .nav-btn.active { color: #d4af37; }
+        .nav-btn.active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: #d4af37; }
+
+        @media (min-width: 640px) { .nav-btn { font-size: 11px; letter-spacing: 0.1em; } }
+
+        .hero-section {
+            height: 90vh;
+            background-image: linear-gradient(to bottom right, #020617, rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.4)), url('https://i.ibb.co/Q3K8jmZY/1772302212490.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            position: relative;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .hero-content { max-w-4xl mx-auto w-full relative z-10 pt-20; }
+        .step-box { width: 28px; height: 28px; background: #d4af37; color: #020617; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 12px; flex-shrink: 0; }
+    </style>
+</head>
+<body class="pb-12">
+
+    <nav class="fixed top-0 w-full z-50 bg-[#020617]/95 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-4 h-20 flex justify-between items-center text-white">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="changeView('home')">
+                <img src="https://i.ibb.co/7NW9gd2F/1000644125-modified.png" alt="Raymex" class="h-10 w-10 sm:h-12 sm:w-12 object-contain">
+                <div>
+                    <h1 class="text-base sm:text-lg font-black tracking-tighter uppercase italic leading-none">Raymex</h1>
+                    <p class="text-[7px] sm:text-[8px] gold-text uppercase tracking-widest font-bold mt-1">Gestión de Activos</p>
+                </div>
+            </div>
+            <div class="flex gap-1 sm:gap-6">
+                <button onclick="changeView('home')" id="btn-home" class="nav-btn active">Inicio</button>
+                <button onclick="changeView('auto')" id="btn-auto" class="nav-btn">Auto</button>
+                <button onclick="changeView('hogar')" id="btn-hogar" class="nav-btn">Hogar</button>
+                <button onclick="changeView('empresa')" id="btn-empresa" class="nav-btn">Empresa</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="home" class="view active">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="w-16 h-1.5 bg-gold mb-8"></div>
+                <h2 class="text-4xl md:text-8xl font-black mb-8 leading-[0.9] uppercase italic text-white tracking-tighter">EL LEGADO DE <br><span class="gold-text">UNA VISIÓN.</span></h2>
+                <p class="text-lg md:text-2xl font-light italic text-slate-200 mb-12 max-w-xl">"Protejo este negocio con el mismo rigor con el que cuido el futuro de mi familia."</p>
+                <div class="flex items-center gap-5 bg-white/5 p-4 rounded-3xl border border-white/10 backdrop-blur-xl w-fit">
+                    <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-slate-900 font-black text-xl">RR</div>
+                    <div><p class="text-sm font-bold uppercase tracking-widest text-white leading-none mb-1">Raúl Ruiz</p><p class="text-[10px] gold-text uppercase font-black">Director General | Cancún</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-16 max-w-5xl mx-auto">
+            <h3 class="text-xs font-black text-slate-500 uppercase tracking-[0.4em] mb-10 text-center italic">Protocolo Sello Raymex</h3>
+            <div class="glass-card p-6 bg-gradient-to-br from-slate-900 to-[#020617] border border-gold/10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+                    <div class="flex items-center gap-4"><div class="step-box">1</div><p class="text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Peritaje & Diagnóstico</p></div>
+                    <div class="flex items-center gap-4"><div class="step-box">2</div><p class="text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Filtro de Personal</p></div>
+                    <div class="flex items-center gap-4"><div class="step-box">3</div><p class="text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Bitácora Digital</p></div>
+                    <div class="flex items-center gap-4"><div class="step-box">4</div><p class="text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Ejecución Estándar</p></div>
+                    <div class="flex items-center gap-4"><div class="step-box">5</div><p class="text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Mantenimiento Preventivo</p></div>
+                    <div class="flex items-center gap-4"><div class="step-box">6</div><p class="text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Reporte de Resultados</p></div>
+                    <div class="flex items-center gap-4 sm:col-span-2"><div class="step-box">7</div><p class="text-[10px] font-black uppercase tracking-widest text-white italic bg-gold/20 px-3 py-1 rounded">Auditoría Continua Raymex</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="auto" class="view pt-32 px-6 max-w-4xl mx-auto">
+        <div class="glass-card p-8 card-auto shadow-2xl">
+            <div class="flex justify-between items-start mb-8 text-[#bef264]"><i class="fa-solid fa-car-rear text-6xl"></i><span class="text-[10px] font-black border-2 border-[#bef264]/30 px-3 py-1 rounded-full uppercase italic">Inversión Activa</span></div>
+            <h3 class="text-3xl font-black mb-6 uppercase text-white leading-none italic">Socio de Flota</h3>
+            <p class="text-lg text-slate-400 mb-12">Administración profesional de vehículos. Rentabilidad semanal líquida.</p>
+            <a href="https://wa.me/529986177700?text=Hola%20Ra%C3%BAl,%20me%20interesa%20la%20Divisi%C3%B3n%20Automotriz." target="_blank" class="block w-full py-6 bg-[#bef264] text-slate-950 text-center rounded-2xl font-black text-sm uppercase tracking-widest">Me interesa Invertir <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+    </main>
+
+    <main id="hogar" class="view pt-32 px-6 max-w-4xl mx-auto">
+        <div class="glass-card p-8 card-hogar shadow-2xl">
+            <div class="flex justify-between items-start mb-8 text-[#10b981]"><i class="fa-solid fa-house-chimney-window text-6xl"></i><span class="text-[10px] font-black border-2 border-[#10b981]/30 px-3 py-1 rounded-full uppercase italic">Gestión Residencial</span></div>
+            <h3 class="text-3xl font-black mb-6 uppercase text-white leading-none italic">Plusvalía VIP</h3>
+            <p class="text-lg text-slate-400 mb-12">Protección técnica de su inmueble. Seguridad y valorización patrimonial.</p>
+            <a href="https://wa.me/529986177700?text=Hola%20Ra%C3%BAl,%20me%20interesa%20la%20gesti%C3%B3n%20de%20mi%20Hogar." target="_blank" class="block w-full py-6 bg-[#10b981] text-white text-center rounded-2xl font-black text-sm uppercase tracking-widest">Solicitar Gestión <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+    </main>
+
+    <main id="empresa" class="view pt-32 px-6 max-w-4xl mx-auto">
+        <div class="glass-card p-8 card-empresa shadow-2xl">
+            <div class="flex justify-between items-start mb-8 text-[#0ea5e9]"><i class="fa-solid fa-briefcase text-6xl"></i><span class="text-[10px] font-black border-2 border-[#0ea5e9]/30 px-3 py-1 rounded-full uppercase italic">Partner Corporativo</span></div>
+            <h3 class="text-3xl font-black mb-6 uppercase text-white leading-none italic">Eficiencia Operativa</h3>
+            <p class="text-lg text-slate-400 mb-12">Outsourcing logístico avanzado. Nosotros operamos su empresa.</p>
+            <a href="https://wa.me/529986177700?text=Hola%20Ra%C3%BAl,%20busco%20optimizar%20la%20log%C3%ADstica%20de%20mi%20empresa." target="_blank" class="block w-full py-6 bg-[#0ea5e9] text-white text-center rounded-2xl font-black text-sm uppercase tracking-widest">Agendar Consultoría <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+    </main>
+
+    <footer class="py-16 px-6 bg-[#010411] border-t border-white/5 mt-12 text-center">
+        <div class="flex justify-center gap-6 mb-12">
+            <a href="https://wa.me/529986177700" target="_blank" class="w-14 h-14 bg-gold rounded-full flex items-center justify-center text-slate-900 text-2xl shadow-lg"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/grupo.raymex" target="_blank" class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-white text-xl"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/grupo.raymex" target="_blank" class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-white text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="mailto:contacto.raymex@gmail.com" class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-white text-xl"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        
+        <div class="space-y-4 font-bold text-[10px] tracking-[0.2em] uppercase">
+            <p class="text-slate-200 italic">WhatsApp: <span class="text-white">+52 998 617 7700</span></p>
+            <p class="text-slate-200 italic lowercase">Correo: <span class="text-white">contacto.raymex@gmail.com</span></p>
+            <p class="gold-text mt-6">Cancún, Quintana Roo</p>
+            <p class="text-slate-700 text-[8px] mt-8 tracking-[0.4em]">Confidencial &copy; 2026 | Grupo Raymex</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeView(id) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.getElementById('btn-' + id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
